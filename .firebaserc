@@ -1,6 +1,6 @@
 {
   "projects": {
-    "default": "REPLACE_WITH_FIREBASE_PROJECT_ID"
+    "default": "ibm-mock-sprint-4e7b1"
   },
   "targets": {},
   "etags": {}

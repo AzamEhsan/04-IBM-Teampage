@@ -1,6 +1,16 @@
 import { collection, doc, type CollectionReference, type DocumentData } from 'firebase/firestore'
 import { getClientDb } from './client'
-import type { UserProfile } from '@/types/firestore'
+// Change 2 - Notes Feature
+import type { Note, UserProfile } from '@/types/firestore'
+
+// append:
+export function getNotesCollection() {
+  return typedCollection<Note>('notes')
+}
+
+export function noteDoc(id: string) {
+  return doc(getNotesCollection(), id)
+}
 
 /**
  * Creates a typed Firestore collection reference.
