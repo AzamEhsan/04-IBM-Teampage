@@ -55,6 +55,23 @@ service cloud.firestore {
 
       allow delete: if false; // soft-delete only — set deletedAt field instead
     }
+    
+    // Change 3 - Notes Feature
+    // notes/{noteId}
+    // Users can only read and write their own notes.
+    match /notes/{noteId} {
+      allow read: if isAuthenticated() && isOwner(resource.data.uid) && notDeleted();
+
+      allow create: if isAuthenticated() && isOwner(request.resource.data.uid)
+        && request.resource.data.keys().hasAll(['uid', 'title', 'body', 'createdAt', 'updatedAt', '_schemaVersion'])
+        && request.resource.data.keys().hasOnly(['uid', 'title', 'body', 'createdAt', 'updatedAt', '_schemaVersion']);
+
+      allow update: if isAuthenticated() && isOwner(resource.data.uid)
+        && request.resource.data.uid == resource.data.uid  // uid is immutable
+        && request.resource.data.keys().hasOnly(['uid', 'title', 'body', 'createdAt', 'updatedAt', 'deletedAt', '_schemaVersion']);
+
+      allow delete: if false; // soft-delete only — set deletedAt instead
+    }
 
     // Add new collection rules above this comment using the /firebase-collection skill.
 
