@@ -5,6 +5,7 @@ import { AuthProvider } from './AuthProvider'
 import { Toaster } from 'sonner'
 import { Navbar } from '@/components/layout/Navbar'
 import { ibmPlexSans } from '@/types/typography'
+import { SidebarProvider } from './SidebarProvider'
 
 
 /**
@@ -14,11 +15,13 @@ import { ibmPlexSans } from '@/types/typography'
 export function Providers({ children }: { children: ReactNode }) {
   return (
     <AuthProvider>
-      <div className={`${ibmPlexSans.className}`}>
-        <Navbar/>
-        {children}
-        <Toaster richColors position="top-right" />
-      </div>
+      <SidebarProvider>
+        <div className={`${ibmPlexSans.className}`}>
+          <Navbar/>
+          {children}
+          <Toaster richColors position="top-right" />
+        </div>
+      </SidebarProvider>
     </AuthProvider>
   )
 }

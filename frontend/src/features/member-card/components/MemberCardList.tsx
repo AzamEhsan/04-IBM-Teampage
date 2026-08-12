@@ -1,7 +1,6 @@
 'use client'
 
 import Image from "next/image"
-import { ibmPlexSans } from "@/types/typography"
 import { mainAccent, blurbColor } from "@/types/colorPallete"
 
 interface memberInfo {
@@ -47,7 +46,7 @@ const teamData : memberInfo[] = [
 
 export function MemberCardList(){
     return (
-        <div className="justify-center flex-initial">
+        <div className="justify-center flex-initial pl-25 pr-25">
             <ul className="max-w p-2 flex flex-initial justify-center gap-20 items-start flex-wrap">
                 {teamData.map((member) => (
                     <li key={member.id}>
@@ -62,7 +61,7 @@ export function MemberCardList(){
                                 loading="eager"
                                 />
                             </div>
-                            <h2 className="w-max p-2 font-bold text-xl">{member.name}</h2>
+                            <h2 className="w-85 p-2 font-bold text-xl text-wrap overflow-wrap">{member.name}</h2>
                             <h3 className="w-max p-2 font-semibold text-lg" style={{WebkitTextFillColor: mainAccent}}>{member.role}</h3>
                             <p className="p-2 overflow-wrap text-wrap text-left font-medium" style={{WebkitTextFillColor: blurbColor}}>{member.blurb}</p>
                         </div>
