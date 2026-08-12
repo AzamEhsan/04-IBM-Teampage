@@ -21,7 +21,8 @@ export function Sidebar() {
           <button
             key={href}
             onClick={() => {
-              router.push(href);
+              router.replace(href);
+              router.refresh();
               setIsOpen(false);
             }}
             className="flex items-center gap-3 rounded-md px-3 py-2 md:text-sm text-3xl font-medium text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 transition-colors dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white"
