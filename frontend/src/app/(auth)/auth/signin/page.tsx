@@ -9,12 +9,11 @@ import { toast } from 'sonner'
 import { useAuth } from '@/hooks/useAuth'
 import { loginSchema, type LoginInput } from '@/lib/validations/auth'
 import { FullPageSpinner } from '@/components/shared/LoadingSpinner'
+import { mainAccent } from '@/types/colorPallete'
 
 export default function SignInPage() {
   const router = useRouter()
   const { user, loading, signInWithEmail, signInWithGoogle } = useAuth()
-
-  const mainAccent = "#0080F8";
 
   const {
     register,

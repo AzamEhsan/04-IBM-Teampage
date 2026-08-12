@@ -1,16 +1,7 @@
 import type { Metadata } from 'next'
 import { Providers } from '@/providers'
 import './globals.css'
-import { IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
-
-const ibmPlexSans = IBM_Plex_Sans({
-  variable: "--font-ibm-plex-sans",
-  subsets: ['latin']
-});
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-ibm-plex-mono",
-  weight: ["700"]
-});
+import { ibmPlexSans, ibmPlexMono } from '@/types/typography'
 
 export const metadata: Metadata = {
   title: {

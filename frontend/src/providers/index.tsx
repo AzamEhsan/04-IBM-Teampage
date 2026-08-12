@@ -4,12 +4,7 @@ import type { ReactNode } from 'react'
 import { AuthProvider } from './AuthProvider'
 import { Toaster } from 'sonner'
 import { Navbar } from '@/components/layout/Navbar'
-import { IBM_Plex_Sans} from 'next/font/google';
-
-const ibmPlexSans = IBM_Plex_Sans({
-  variable: "--font-ibm-plex-sans",
-  subsets: ['latin']
-});
+import { ibmPlexSans } from '@/types/typography'
 
 
 /**

@@ -1,6 +1,8 @@
 'use client'
 
 import Image from "next/image"
+import { ibmPlexSans } from "@/types/typography"
+import { mainAccent, blurbColor } from "@/types/colorPallete"
 
 interface memberInfo {
     id: number
@@ -45,24 +47,28 @@ const teamData : memberInfo[] = [
 
 export function MemberCardList(){
     return (
-        <ul className="flex-initial justify-center max-w grid xl:grid-cols-3 xl:grid-rows-2 md:grid-cols-2 md:grid-rows-3 sm:grid-cols-1 sm:grid-rows-1  border">
-            {teamData.map((member) => (
-                <li key={member.id} className="m-2 flex-initial justify-center items-center w-80 h-130 rounded-xl border-0 overflow-hidden shadow-xl">
-                    <div className="border h-80 overflow-hidden">
-                        <Image
-                        src={`/../../../../images/${member.imgName}`}
-                        alt={member.imgName}
-                        width={500}
-                        height={500}
-                        style={{ width: '100%', height: 'auto' }}
-                        loading="eager"
-                        />
-                    </div>
-                    <h1 className="w-max p-2">{member.name}</h1>
-                    <h2 className="w-max p-2">{member.role}</h2>
-                    <p className="p-2 overflow-wrap text-wrap">{member.blurb}</p>
-                </li>
-            ))}
-        </ul>
+        <div className="justify-center flex-initial">
+            <ul className="max-w p-2 flex flex-initial justify-center gap-20 items-start flex-wrap">
+                {teamData.map((member) => (
+                    <li key={member.id}>
+                        <div className="m-2 w-85 h-135 rounded-xl border-none overflow-hidden shadow-xl">
+                            <div className="border border-none h-80 overflow-hidden">
+                                <Image
+                                src={`/../../../../images/${member.imgName}`}
+                                alt={member.imgName}
+                                width={500}
+                                height={500}
+                                style={{ width: '100%', height: 'auto' }}
+                                loading="eager"
+                                />
+                            </div>
+                            <h2 className="w-max p-2 font-bold text-xl">{member.name}</h2>
+                            <h3 className="w-max p-2 font-semibold text-lg" style={{WebkitTextFillColor: mainAccent}}>{member.role}</h3>
+                            <p className="p-2 overflow-wrap text-wrap text-left font-medium" style={{WebkitTextFillColor: blurbColor}}>{member.blurb}</p>
+                        </div>
+                    </li>
+                ))}
+            </ul>
+        </div>
     )
 }
