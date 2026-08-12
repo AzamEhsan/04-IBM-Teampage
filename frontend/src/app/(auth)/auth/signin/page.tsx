@@ -75,8 +75,15 @@ export default function SignInPage() {
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div className="space-y-1.5">
-            <label htmlFor="email" className="text-sm font-semibold">
-              Email
+            <label htmlFor="email" className="text-sm font-semibold inline">
+              Email 
+              <span>
+                {errors.email && (
+                  <p id="email-error" className="pl-3 inline text-xs text-red-500" role="alert">
+                    {errors.email.message}
+                  </p>
+                )}
+              </span>
             </label>
             <input
               id="email"
@@ -88,11 +95,6 @@ export default function SignInPage() {
               placeholder="you@example.com"
               {...register('email')}
             />
-            {errors.email && (
-              <p id="email-error" className="text-xs text-red-500" role="alert">
-                {errors.email.message}
-              </p>
-            )}
           </div>
 
           <div className="space-y-1.5">
