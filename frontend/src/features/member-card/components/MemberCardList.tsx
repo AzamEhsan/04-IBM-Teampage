@@ -16,31 +16,31 @@ const teamData : memberInfo[] = [
         imgName: "AzamE.jpeg", 
         name: "Azam Eshan", 
         role: "Project Manager (PM)", 
-        blurb: "This is a sample blurb for the purpose of displaying the edge case where 150 characters in the maximum for a team member's blurb. It will be cut off."
+        blurb: "A PM and IT student with strong communication skills. Interested in networking, and AI-driven automation."
     },
     {id: 1, 
         imgName: "SahilP.jpeg", 
         name: "Sahil Chetankumar Patel", 
         role: "Business Analyst (BA)", 
-        blurb: "This is a sample blurb for the purpose of displaying the edge case where 150 characters in the maximum for a team member's blurb. It will be cut off."
+        blurb: "Final year CS student and Business Analyst with a minor in AI and cloud computing, interested in making complex requirements simple to build."
     },
     {id: 2, 
         imgName: "JessicaG.jpg", 
         name: "Jessica Giacometti", 
         role: "UX Designer", 
-        blurb: "This is a sample blurb for the purpose of displaying the edge case where 150 characters in the maximum for a team member's blurb. It will be cut off."
+        blurb: "UX Designer focused on creating intuitive user interactions with experience in cybersecurity, passionate about investigation and security analysis."
     },
     {id: 3, 
         imgName: "MarieF.jpg", 
         name: "Rowena Marie Cyrelle Bulaklak Ferareza", 
         role: "Developer", 
-        blurb: "This is a sample blurb for the purpose of displaying the edge case where 150 characters in the maximum for a team member's blurb. It will be cut off."
+        blurb: "A diligent all-rounded Software Developer with strong communication skills. Experienced in App and Web Development with some experience in Cloud."
     },
     {id: 4, 
         imgName: "LoveK.png", 
         name: "Love Kumar", 
         role: "Developer", 
-        blurb: "This is a sample blurb for the purpose of displaying the edge case where 150 characters in the maximum for a team member's blurb. It will be cut off."
+        blurb: "IT student and aspiring Software Developer passionate about Web Development, Cloud Technologies, testing, and building reliable digital solutions."
     },
 ]
 
