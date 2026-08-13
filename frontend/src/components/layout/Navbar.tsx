@@ -20,7 +20,7 @@ export function Navbar() {
   return (
     <header className="flex h-14 items-center justify-between dark:bg-zinc-900 bg-[${bgColor}]" style={{backgroundColor: secondaryAccent}}>
       {user && <HamburgerButton/>}
-      <div className="text-3xl font-bold ml-5">
+      <div className="md:text-3xl text-xl font-bold ml-5">
         <Link href={`${user ? "/dashboard" : "/"}`}>Garage Boilerplate</Link>
       </div>
       <div className="flex-1" />
