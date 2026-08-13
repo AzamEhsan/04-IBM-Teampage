@@ -9,12 +9,13 @@ import { toast } from 'sonner'
 import { useAuth } from '@/hooks/useAuth'
 import { loginSchema, type LoginInput } from '@/lib/validations/auth'
 import { FullPageSpinner } from '@/components/shared/LoadingSpinner'
+import { mainAccent } from '@/types/colorPallete'
 
 export default function SignInPage() {
   const router = useRouter()
   const { user, loading, signInWithEmail, signInWithGoogle } = useAuth()
 
-  const mainAccent = "#0080F8";
+  const loginRedirect = "/team-page";
 
   const {
     register,
@@ -26,7 +27,7 @@ export default function SignInPage() {
 
   useEffect(() => {
     if (!loading && user) {
-      router.replace('/dashboard')
+      router.replace(loginRedirect)
     }
   }, [loading, user, router])
 
@@ -43,7 +44,7 @@ export default function SignInPage() {
     try {
       await signInWithEmail(data.email, data.password)
       toast.success('Signed in successfully')
-      router.replace('/dashboard')
+      router.replace(loginRedirect)
       router.refresh()
     } catch (error: unknown) {
       if (error instanceof Error && error.message.includes('email-not-verified')) {
@@ -57,7 +58,7 @@ export default function SignInPage() {
   const handleGoogleSignIn = async () => {
     try {
       await signInWithGoogle()
-      router.replace('/dashboard')
+      router.replace(loginRedirect)
     } catch {
       toast.error('Google sign-in failed. Please try again.')
     }
@@ -75,8 +76,15 @@ export default function SignInPage() {
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div className="space-y-1.5">
-            <label htmlFor="email" className="text-sm font-semibold">
-              Email
+            <label htmlFor="email" className="text-sm font-semibold inline">
+              Email 
+              <span>
+                {errors.email && (
+                  <p id="email-error" className="pl-3 inline text-xs text-red-500" role="alert">
+                    {errors.email.message}
+                  </p>
+                )}
+              </span>
             </label>
             <input
               id="email"
@@ -88,11 +96,6 @@ export default function SignInPage() {
               placeholder="you@example.com"
               {...register('email')}
             />
-            {errors.email && (
-              <p id="email-error" className="text-xs text-red-500" role="alert">
-                {errors.email.message}
-              </p>
-            )}
           </div>
 
           <div className="space-y-1.5">
