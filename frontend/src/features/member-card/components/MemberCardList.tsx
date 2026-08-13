@@ -53,7 +53,7 @@ export function MemberCardList(){
                         <div className="m-2 w-85 h-135 rounded-xl border-none overflow-hidden shadow-xl">
                             <div className="border border-none h-80 overflow-hidden">
                                 <Image
-                                src={`/../../../../images/${member.imgName}`}
+                                src={`/images/${member.imgName}`}
                                 alt={member.imgName}
                                 width={500}
                                 height={500}
