@@ -15,7 +15,7 @@ export default function SignInPage() {
   const router = useRouter()
   const { user, loading, signInWithEmail, signInWithGoogle } = useAuth()
 
-  const loginRedirect = "/team-page";
+  const signInRedirect = '/team-page';
 
   const {
     register,
@@ -27,7 +27,7 @@ export default function SignInPage() {
 
   useEffect(() => {
     if (!loading && user) {
-      router.replace(loginRedirect)
+      router.replace(signInRedirect)
     }
   }, [loading, user, router])
 
@@ -44,7 +44,7 @@ export default function SignInPage() {
     try {
       await signInWithEmail(data.email, data.password)
       toast.success('Signed in successfully')
-      router.replace(loginRedirect)
+      router.replace(signInRedirect)
       router.refresh()
     } catch (error: unknown) {
       if (error instanceof Error && error.message.includes('email-not-verified')) {
@@ -58,7 +58,7 @@ export default function SignInPage() {
   const handleGoogleSignIn = async () => {
     try {
       await signInWithGoogle()
-      router.replace(loginRedirect)
+      router.replace(signInRedirect)
     } catch {
       toast.error('Google sign-in failed. Please try again.')
     }
